@@ -23,7 +23,7 @@ body{
     display: flex;
 }
 /* Set item div on display none */
-.item{
+.notActive{
     display: none;
 }
 #items_container{
@@ -68,7 +68,7 @@ body{
 }
 
 /* Class with brightness */
-.thumb{
+.ligthBrightness{
     filter: brightness(0.3);
 }
 .brightness{

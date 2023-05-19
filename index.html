@@ -4,35 +4,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carousel</title>
+    <!-- Link font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="slider">
 
-            <!-- Container per foto caricate da js -->
-            <div id="items_container">
+    <!-- Link app Vue.js -->
+    <div id="app">
+        <div class="container">
+            <div class="slider">
+
+                <!-- Container per foto caricate da js -->
+                <div id="items_container">
+
+                    <!-- Ciclo div con immagine dentro -->
+                    <div v-for="(img, index) in cards">
+                        <img :src="img.image" class="notActive" 
+                        :class="activeImg === index ? 'active' : ''">
+
+                        <!-- Ciclo div per didascalie in oggetto -->
+                        <div class="text" v-for="(img, index) in cards">
+                            <h2 class="notActive" :class="activeImg === index ? 'active' : ''">{{img.title}}</h2>
+                            <p class="notActive" :class="activeImg === index ? 'active' : ''">{{img.text}}</p>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div id="thumbnail_container">
+
+                    <!-- Ciclo immagini per thumbnail -->
+                    <div v-for="(img, index) in cards">
+                        <img :src="img.image" class="ligthBrightness" :class="activeImg === index ? 'brightness' : ''">
+                    </div>
+
+                <!-- Top button settato con funzione removeIndex -->
+                <button id="top_button" @click="removeIndex"><i class="fa-solid fa-chevron-up"></i></button>
+
+                <!-- Bottom button settato con funzione addIndex -->
+                <button id="bottom_button" @click="addIndex"><i class="fa-solid fa-chevron-down"></i></button>
+
+                </div>
 
             </div>
-            <div id="thumbnail_container">
-                
-            <!-- Top button -->
-            <button id="top_button"><i class="fa-solid fa-chevron-up"></i></button>
-
-            <!-- Bottom button -->
-            <button id="bottom_button"><i class="fa-solid fa-chevron-down"></i></button>
-
-            </div>
-
+<!-- 
+            <button id="stop-time" class="button-timer">Stop</button>
+            <button id="play-time" class="button-timer">Play</button>
+            <button id="revert-time" class="button-timer">Revert</button> -->
+            
         </div>
-
-        <button id="stop-time" class="button-timer">Stop</button>
-        <button id="play-time" class="button-timer">Play</button>
-        <button id="revert-time" class="button-timer">Revert</button>
-        
     </div>
-    
+
+    <!-- Link JS -->
     <script src="js/main.js"></script>
 </body>
 </html>
