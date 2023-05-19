@@ -10,6 +10,7 @@ const { createApp } = Vue
     data() {
       return {
         activeImg: 0,
+        timer: '',
         cards : [
             {
                 image: 'img/01.webp',
@@ -50,9 +51,21 @@ const { createApp } = Vue
             this.activeImg--;
             }
         },
-        // chooseImg(){
-        //     this.activeImg = index;
-        // }
+        stopInterval(){
+            clearInterval(this.timer);
+        },
+        playInterval(){
+            clearInterval(this.timer);
+            this.timer = setInterval(this.addIndex,1000);
+        },
+        reverseInterval(){
+            clearInterval(this.timer);
+            this.timer = setInterval(this.removeIndex,1000)        
+        }
+    },
+    mounted(){
+        this.timer = setInterval(this.addIndex,1000);
+
     }
   
   }).mount('#app');
