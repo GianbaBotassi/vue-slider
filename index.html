@@ -12,24 +12,24 @@
 </head>
 <body>
 
-    <!-- Link app Vue.js -->
+    <!-- App Vue.js -->
     <div id="app">
         <div class="container">
-            <div class="slider">
+
+            <!-- Aggiunto mouseover per fermare autoplay e mouseleave per ripristinarlo -->
+            <div class="slider" @mouseover="stopInterval" @mouseleave="playInterval">
 
                 <!-- Container per foto caricate da js -->
                 <div id="items_container">
 
-                    <!-- Ciclo div con immagine dentro -->
-                    <div v-for="(img, index) in cards">
-                        <img :src="img.image" class="notActive" 
-                        :class="activeImg === index ? 'active' : ''">
+                    <!-- Ciclo div con immagini dell'array oggetti -->
+                    <img v-for="(img, index) in cards" :src="img.image" class="notActive" 
+                    :class="activeImg === index ? 'active' : ''">
 
-                        <!-- Ciclo div per didascalie in oggetto -->
-                        <div class="text" v-for="(img, index) in cards">
-                            <h2 class="notActive" :class="activeImg === index ? 'active' : ''">{{img.title}}</h2>
-                            <p class="notActive" :class="activeImg === index ? 'active' : ''">{{img.text}}</p>
-                        </div>
+                    <!-- Ciclo div per didascalie in array oggetti -->
+                    <div class="text" v-for="(img, index) in cards">
+                        <h2 class="notActive" :class="activeImg === index ? 'active' : ''">{{img.title}}</h2>
+                        <p class="notActive" :class="activeImg === index ? 'active' : ''">{{img.text}}</p>
                     </div>
                    
                 </div>
@@ -47,13 +47,7 @@
                 <button id="bottom_button" @click="addIndex"><i class="fa-solid fa-chevron-down"></i></button>
 
                 </div>
-
             </div>
-
-            <button id="stop-time" class="button-timer" @click="stopInterval">Stop</button>
-            <button id="play-time" class="button-timer" @click="playInterval">Play</button>
-            <button id="revert-time" class="button-timer" @click="reverseInterval">Revert</button>
-            
         </div>
     </div>
 

@@ -3,14 +3,14 @@
 // 2- applicare l’autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
 // 3- quando il mouse va in hover sullo slider, bloccare l’autoplay e farlo riprendere quando esce
 
-
+// Destructoring di Vue
 const { createApp } = Vue
 
   createApp({
     data() {
       return {
-        activeImg: 0,
-        timer: '',
+        activeImg: 0,   //variabile di stato
+        timer: '',      //variabile timer per poter fermare setInterval
         cards : [
             {
                 image: 'img/01.webp',
@@ -37,61 +37,31 @@ const { createApp } = Vue
       }
     },
     methods:{
-        addIndex(){
+        addIndex(){   //Aumenta di 1 variabile
             if(this.activeImg === this.cards.length -1){
                 this.activeImg = 0;
             }else{
             this.activeImg++;
             }
         },
-        removeIndex(){
+        removeIndex(){   //Rimuovi di 1 variabile
             if (this.activeImg === 0) {
                 this.activeImg = this.cards.length - 1;
             }else{
             this.activeImg--;
             }
         },
-        stopInterval(){
+        stopInterval(){  //Ferma autoplay
             clearInterval(this.timer);
         },
-        playInterval(){
+        playInterval(){    //Riparte autoplay
             clearInterval(this.timer);
             this.timer = setInterval(this.addIndex,1000);
-        },
-        reverseInterval(){
-            clearInterval(this.timer);
-            this.timer = setInterval(this.removeIndex,1000)        
         }
     },
     mounted(){
-        this.timer = setInterval(this.addIndex,1000);
+        this.timer = setInterval(this.addIndex,1000);   //Inizia autoplay al caricamento dell'app
 
     }
   
   }).mount('#app');
-
-// /******************** ZONA BOTTONI PER SET INTERVAL  ***************************/
-
-// // Set intervallo di 3 secondi per far cambiare posizione array
-// let timer = setInterval(switchBottom,3000);
-
-// // Assegno bottone per stoppare setinterval e funzione clearinterval
-// const elStopButton = document.getElementById('stop-time');
-// elStopButton.addEventListener('click', ()=> clearInterval(timer));
-
-// // Assegno bottone per ricominciare seinterval e funzione setinterval
-// const elPlayButton = document.getElementById('play-time');
-// elPlayButton.addEventListener('click', ()=> {
-//     clearInterval(timer);
-//     timer = setInterval(switchBottom,3000);
-// });
-
-// // Assegno bottone per revertare seinterval e funzione setinterval al contrario
-// const elRevertButton = document.getElementById('revert-time');
-// elRevertButton.addEventListener('click', ()=> {
-//     clearInterval(timer);
-//     timer = setInterval(switchTop,3000)
-// });
-
-// /***********************************FUNCTIONS ****************************/
-

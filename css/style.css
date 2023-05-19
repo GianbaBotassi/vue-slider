@@ -6,9 +6,11 @@
 }
 
 body{
-    background-color: rgb(219, 176, 115);
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);   
 }
-/* main container */
+
+/* Main container */
 .container{
     height: 100vh;
     display: flex;
@@ -22,31 +24,29 @@ body{
     margin: 0 auto;
     display: flex;
 }
-/* Set item div on display none */
-.notActive{
-    display: none;
-}
+
 #items_container{
     height: 100%;
     width: 75%;
     position: relative;
 }
-#items_container img{
+
+#items_container img, #thumbnail_container img{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-/* Class active to show divs */
-.active{
-    display: block;
-}
+
+/* Div con didascalie */
 .text{
     position: absolute;
-    right: 20px;
-    bottom: 40px;
+    padding-right: 20px;
+    right: 0;
+    top: 300px;
     text-align: right;
     color: white;
     padding-left: 100px;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 .text p{
     margin-top: 5px;
@@ -61,17 +61,24 @@ body{
 #thumbnail_container div{
     height: 20%;
 }
-#thumbnail_container img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+
+/************************* STATUS ************************/
+
+/* Set item div on display none */
+.notActive{
+    display: none;
+}
+/* Class active to show divs */
+.active{
+    display: block;
 }
 
-/* Class with brightness */
+/* Class with light brightness */
 .ligthBrightness{
     filter: brightness(0.3);
     cursor: pointer;
 }
+/* Class without brightness and add border */
 .brightness{
     filter: brightness(1);
     border: 4px solid;
@@ -88,15 +95,7 @@ button{
     cursor: pointer;
     z-index: 1;
 }
-#play-time{
-    top: 100px;
-}
-#revert-time{
-    bottom: 100px;
-}
-.button-timer{
-    left: 50px;
-}
+
 #top_button{
     right: 50%;
     top:2%;
