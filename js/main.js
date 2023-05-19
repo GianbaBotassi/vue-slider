@@ -1,5 +1,7 @@
-
-// Array dato da esercizio
+// Bonus:
+// 1- al click su una thumb, visualizzare in grande l’immagine corrispondente
+// 2- applicare l’autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+// 3- quando il mouse va in hover sullo slider, bloccare l’autoplay e farlo riprendere quando esce
 
 
 const { createApp } = Vue
@@ -35,22 +37,22 @@ const { createApp } = Vue
     },
     methods:{
         addIndex(){
-            
             if(this.activeImg === this.cards.length -1){
                 this.activeImg = 0;
             }else{
             this.activeImg++;
             }
-         },
+        },
         removeIndex(){
-
             if (this.activeImg === 0) {
                 this.activeImg = this.cards.length - 1;
             }else{
             this.activeImg--;
             }
-        
-            }
+        },
+        // chooseImg(){
+        //     this.activeImg = index;
+        // }
     }
   
   }).mount('#app');

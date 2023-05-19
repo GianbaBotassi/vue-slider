@@ -70,6 +70,7 @@ body{
 /* Class with brightness */
 .ligthBrightness{
     filter: brightness(0.3);
+    cursor: pointer;
 }
 .brightness{
     filter: brightness(1);

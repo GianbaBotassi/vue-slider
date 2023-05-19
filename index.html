@@ -37,7 +37,7 @@
 
                     <!-- Ciclo immagini per thumbnail -->
                     <div v-for="(img, index) in cards">
-                        <img :src="img.image" class="ligthBrightness" :class="activeImg === index ? 'brightness' : ''">
+                        <img :src="img.image" class="ligthBrightness" :class="activeImg === index ? 'brightness' : ''" @click="activeImg = index">
                     </div>
 
                 <!-- Top button settato con funzione removeIndex -->
