@@ -46,7 +46,7 @@ body{
     text-align: right;
     color: white;
     padding-left: 100px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 .text p{
     margin-top: 5px;
@@ -63,15 +63,6 @@ body{
 }
 
 /************************* STATUS ************************/
-
-/* Set item div on display none */
-.notActive{
-    display: none;
-}
-/* Class active to show divs */
-.active{
-    display: block;
-}
 
 /* Class with light brightness */
 .ligthBrightness{

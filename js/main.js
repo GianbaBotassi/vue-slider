@@ -9,7 +9,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        activeImg: 0,   //variabile di stato
+        activeItem: 0,   //variabile di stato
         timer: '',      //variabile timer per poter fermare setInterval
         cards : [
             {
@@ -38,29 +38,32 @@ const { createApp } = Vue
     },
     methods:{
         addIndex(){   //Aumenta di 1 variabile
-            if(this.activeImg === this.cards.length -1){
-                this.activeImg = 0;
+            if(this.activeItem === this.cards.length -1){
+                this.activeItem = 0;
             }else{
-            this.activeImg++;
+            this.activeItem++;
             }
         },
         removeIndex(){   //Rimuovi di 1 variabile
-            if (this.activeImg === 0) {
-                this.activeImg = this.cards.length - 1;
+            if (this.activeItem === 0) {
+                this.activeItem = this.cards.length - 1;
             }else{
-            this.activeImg--;
+            this.activeItem--;
             }
+        },
+        clickChangeIndex(indice){  //Cambia valore active al click
+            this.activeItem = indice;
         },
         stopInterval(){  //Ferma autoplay
             clearInterval(this.timer);
         },
         playInterval(){    //Riparte autoplay
             clearInterval(this.timer);
-            this.timer = setInterval(this.addIndex,1000);
+            this.timer = setInterval(this.addIndex,3000);
         }
     },
     mounted(){
-        this.timer = setInterval(this.addIndex,1000);   //Inizia autoplay al caricamento dell'app
+        this.timer = setInterval(this.addIndex,3000);   //Inizia autoplay al caricamento dell'app
 
     }
   

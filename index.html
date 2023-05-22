@@ -22,14 +22,13 @@
                 <!-- Container per foto caricate da js -->
                 <div id="items_container">
 
-                    <!-- Ciclo div con immagini dell'array oggetti -->
-                    <img v-for="(img, index) in cards" :src="img.image" class="notActive" 
-                    :class="activeImg === index ? 'active' : ''">
+                    <!-- Prendo l'immagine dell'oggetto con l'index attivo a quel momento -->
+                    <img :src="cards[activeItem].image" alt="cards[activeItem].title">
 
-                    <!-- Ciclo div per didascalie in array oggetti -->
-                    <div class="text" v-for="(img, index) in cards">
-                        <h2 class="notActive" :class="activeImg === index ? 'active' : ''">{{img.title}}</h2>
-                        <p class="notActive" :class="activeImg === index ? 'active' : ''">{{img.text}}</p>
+                    <!-- Prendo i dati dell'oggetto con l'index attivo a quel momento -->
+                    <div class="text">
+                        <h2>{{cards[activeItem].title}}</h2>
+                        <p>{{cards[activeItem].text}}</p>
                     </div>
                    
                 </div>
@@ -37,7 +36,7 @@
 
                     <!-- Ciclo immagini per thumbnail -->
                     <div v-for="(img, index) in cards">
-                        <img :src="img.image" class="ligthBrightness" :class="activeImg === index ? 'brightness' : ''" @click="activeImg = index">
+                        <img :src="img.image" class="ligthBrightness" :class="activeItem === index ? 'brightness' : ''" @click="clickChangeIndex(index)">
                     </div>
 
                 <!-- Top button settato con funzione removeIndex -->
